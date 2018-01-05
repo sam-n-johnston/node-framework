@@ -199,7 +199,7 @@ export class RequestValidator {
                 }
 
                 if (param.requires && param.requires.length > 0) {
-                    for (let i = 0; i < param.requires.length; i++) {
+                    for (let i = 0; i < param.requires.length; i += 1) {
                         if (entity[param.requires[i]] === undefined) {
                             error.messages.push(`"${key}" requires "${param.requires[i]}" to be defined`);
                         }
@@ -207,7 +207,7 @@ export class RequestValidator {
                 }
 
                 if (param.mutuallyExcludes && param.mutuallyExcludes.length > 0) {
-                    for (let i = 0; i < param.mutuallyExcludes.length; i++) {
+                    for (let i = 0; i < param.mutuallyExcludes.length; i += 1) {
                         if (entity[param.mutuallyExcludes[i]]) {
                             error.messages.push(`"${key}" cannot be used with "${param.mutuallyExcludes[i]}"`);
                         }
